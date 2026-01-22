@@ -1,0 +1,74 @@
+/* Reset básico para evitar márgenes por defecto */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo general del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Sección principal (modelo de cajas) */
+.card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Imagen */
+.card img {
+    width: 120px;
+    height: auto;
+}
+
+/* Contenido */
+.contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Botón */
+button {
+    width: 150px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Efecto hover */
+button:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Pantallas pequeñas (mobile) */
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+    }
+}
