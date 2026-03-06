@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow | Gestor de Tareas</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="title">TaskFlow</h1>
+      <p class="subtitle">Gestión de tareas - Módulo 5</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 class="card__title">Nueva tarea</h2>
+
+      <form id="taskForm" class="form" autocomplete="off">
+        <label class="label" for="taskDesc">Descripción</label>
+        <input
+          id="taskDesc"
+          class="input"
+          type="text"
+          placeholder="Ej: Llamar a la oficina, preparar informe..."
+          required
+        />
+
+        <div class="row">
+          <div class="col">
+            <label class="label" for="taskDue">Fecha límite (opcional)</label>
+            <input id="taskDue" class="input" type="date" />
+            <small class="hint">Si agregas fecha, verás un contador regresivo.</small>
+          </div>
+
+          <div class="col col--actions">
+            <button class="btn btn--primary" type="submit">Agregar</button>
+            <button class="btn" id="clearAllBtn" type="button" title="Elimina todas las tareas">Borrar todo</button>
+          </div>
+        </div>
+
+        <div class="helper">
+          <span id="charCount" class="helper__text">0 / 80</span>
+          <span id="formTip" class="helper__text">Tip: presiona Enter para agregar</span>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card__head">
+        <h2 class="card__title">Mis tareas</h2>
+        <div class="filters">
+          <button class="chip chip--active" data-filter="all" type="button">Todas</button>
+          <button class="chip" data-filter="pending" type="button">Pendientes</button>
+          <button class="chip" data-filter="done" type="button">Completadas</button>
+        </div>
+      </div>
+
+      <ul id="taskList" class="list" aria-live="polite"></ul>
+      <p id="emptyState" class="empty">Aún no hay tareas. Crea una arriba 👆</p>
+    </section>
+
+    <section class="card">
+      <div class="card__head">
+        <h2 class="card__title">Sincronización (API demo)</h2>
+      </div>
+
+      <div class="row row--api">
+        <button class="btn btn--secondary" id="loadApiBtn" type="button">
+          Cargar 5 tareas demo (JSONPlaceholder)
+        </button>
+
+        <button class="btn" id="saveApiBtn" type="button" title="Hace un POST de ejemplo">
+          Guardar una tarea demo (POST)
+        </button>
+
+        <span id="apiStatus" class="status" role="status" aria-live="polite"></span>
+      </div>
+
+      <small class="hint">
+        Nota: JSONPlaceholder es una API de prueba. El POST simula guardado y devuelve un objeto de respuesta.
+      </small>
+    </section>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>TaskFlow • Proyecto Módulo 5 • Eduardo Gomes</small>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
